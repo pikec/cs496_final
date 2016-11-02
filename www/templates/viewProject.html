@@ -1,0 +1,31 @@
+<ion-view view-title="Craft Project" cache-view="false">
+<ion-nav-buttons side="secondary">
+<a ui-sref="list" class="button ion-home">Return Home</a>
+</ion-nav-buttons>
+<ion-content padding="true" scroll="true" ng-controller ="ViewCtrl">
+<ion-list>
+<div class="list list-insert">
+<div class="item">Title: {{data.title}}</div>
+<div class="item">Description: {{data.descr}}</div>
+<div class="item">Commisioned? {{data.comm}}</div>
+<div class="item">By or For Whom: {{data.whom}}</div>
+</div>
+</ion-list>	
+<br/>
+<br/>
+<div class="card">
+<form name="addNot" novalidate>
+	<div class="item item-divider"> Add a notification for this project</div>
+	<label class="item item-input">
+		<span class="input-label">Message:</span>
+		<input type="text" name="msgs" ng-model="notify.msg" required/>
+	</label>
+	<button class="button button-calm" ng-disabled="addNot.$invalid" ng-click="addNotify()">Schedule</button>
+	<br/>
+	<div class="padding">
+			<p ng-show="addNot.msgs.$error.required">*Message is Required. </p>
+	</div>
+</form>
+</div>
+</ion-content>
+</ion-view>

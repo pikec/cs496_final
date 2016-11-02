@@ -1,0 +1,128 @@
+$scope.submits = function(){
+		$http({
+				method: 'POST',
+				url: urlApi,		
+				data:{
+						title: $scope.data.title,
+						description: $scope.data.descr,
+						commisioned: $scope.data.commisioned,
+						whom: $scope.data.whom,
+						user: id},
+				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+		}).success(function(res){
+			$scope.response = "Project added";
+			console.log(res);
+		});
+	};
+		
+		
+			$scope.submits = function(){
+		$http({
+				method: 'POST',
+				url: urlApi,		
+				data:{
+						title: $scope.data.title,
+						description: $scope.data.descr,
+						commisioned: $scope.data.commisioned,
+						whom: $scope.data.whom,
+						user: id},
+				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+		}).success(function(res){
+			$scope.response = "Project added";
+			console.log(res);
+		});
+	};
+	
+	
+	"application/x-www-form-urlencoded"
+	
+	
+	.config(['$httpProvider', function ($httpProvider) {
+  // Intercept POST requests, convert to standard form encoding
+  $httpProvider.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+  $httpProvider.defaults.transformRequest.unshift(function (data, headersGetter) {
+    var key, result = [];
+
+    if (typeof data === "string")
+      return data;
+
+    for (key in data) {
+      if (data.hasOwnProperty(key))
+        result.push(encodeURIComponent(key) + "=" + encodeURIComponent(data[key]));
+    }
+    return result.join("&");
+  });
+}]);
+
+
+.config(['$httpProvider', function ($httpProvider) {
+  // Intercept POST requests, convert to standard form encoding
+  $httpProvider.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+  $httpProvider.defaults.transformRequest.unshift(function (data, headersGetter) {
+    var key, result = [];
+
+    if (typeof data === "string")
+      return data;
+
+    for (key in data) {
+      if (data.hasOwnProperty(key))
+        result.push(encodeURIComponent(key) + "=" + encodeURIComponent(data[key]));
+    }
+    return result.join("&");
+  });
+}]);
+
+
+POST /projects HTTP/1.1
+Host: projectapi-1371.appspot.com
+Connection: keep-alive
+Content-Length: 78
+Accept: application/json, text/plain, */*
+Origin: http://evil.com/
+User-Agent: Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.23 Mobile Safari/537.36
+Content-Type: application/x-www-form-urlencoded
+Referer: http://localhost:8100/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+
+{"whom": "not", "title": "this", "description": null, "commisioned": "False", "user": 6217263929622528}
+
+HTTP/1.1 201 Created
+Content-Type: text/html; charset=utf-8
+Cache-Control: no-cache
+Content-Encoding: gzip
+X-Cloud-Trace-Context: d26cdefb39c0dcf788a0436f03e02793;o=1
+Vary: Accept-Encoding
+Date: Sat, 30 Jul 2016 06:54:09 GMT
+Server: Google Frontend
+Content-Length: 106
+
+
+<button class ="button button-small ion-android-list button-stable"></button>
+		<button class="button button-small ion-edit button-stable"></button>	
+		<button class="button button-small ion-trash-b button-stable"></button>	
+
+	<a ui-sref="view/({id: {{id}}})" class="button button-small button-stable ion-android-list"></a>	
+		
+$scope.delete()=function(id){
+		var urlApi = 'http://projectapi-1371.appspot.com/projects';
+		$http({
+			metod: 'DELETE',
+			url: urlApi + id
+		}).success(function(res){
+			alert("Project Delted");
+		});
+	};		
+	
+	
+	$http({
+				method: 'PUT',
+				url: urlApi+pid,
+				data: JSON.stringify(object)
+			}).success(function(data, status, header, config){
+				alert( "Project edited");
+				console.log(data);
+				console.log(res);
+		}). error(function(data, status, header, config){
+			console.log(status);
+		});		

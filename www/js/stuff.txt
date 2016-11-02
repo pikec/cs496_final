@@ -1,0 +1,28 @@
+$scope.data = [];
+	$scope.title=title;
+	$scope.description=description;
+	$scope.commissioned = commisioned;
+	$scope.user = id;
+	$scope.whom=whom;
+	http({
+   url : urlApi,
+		method : "POST",
+		data : JSON.stringify($scope.data)
+	}).then(function(responseData){
+		$scope.response="Project added.";
+	}, function(errorData){
+		$scope.responcse="ERROR. Project not added.";
+	})	
+		$http({
+       method: method,//GET-POST
+       url: url,
+       data: data,
+       dataType: 'json',
+       headers: {
+           "Content-Type": "application/json"
+       }
+		}).success(function (data) {//Success handling
+	
+		}).error(function (data, status) {//Error handling
+
+	});

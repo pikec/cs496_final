@@ -1,0 +1,30 @@
+<ion-view alight-title="right" view-title="Add a project" cache-view="false">
+<ion-nav-buttons side="secondary">
+<a ui-sref="list" class="button ion-home">Return Home</a>
+</ion-nav-buttons>
+<ion-content padding="true" scroll="true" ng-controller="AddCtrl">
+<form ng-submit="submits()" name="addForm" novalidate>
+	<div class="list">
+	<label class="item item-input">
+		<span class="input-label">Title:</span>
+		<input type="text" name="title" ng-model="data.title" required/>
+	</label>
+	<label class="item item-input">
+		<span class="input-label">Description:</span>
+		<input type="text" name="description" ng-model="data.descr"/>
+	</label>
+	<label class="item item-input"> Commisioned?</label>
+	<ion-radio ng-model="data.commisioned" value="True">Yes</ion-radio>
+	<ion-radio ng-model="data.commisioned" value="False">No</ion-radio>
+	<label class="item item-input">
+		<span class="input-label">By or For Whom:</span>
+		<input type="text" name="whom"  ng-model="data.whom"/>
+	</label>
+	<button class="button button-block button-positive" ng-disabled="addForm.$invalid" type="submit">Add new project</button>
+	</div>
+		<div class="padding">
+			<p ng-show="addForm.title.$error.required">*Title is Required. </p>
+	</div>
+</form>	
+</ion-content
+</ion-view>

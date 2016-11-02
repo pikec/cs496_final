@@ -1,0 +1,30 @@
+<ion-view alight-title="right" view-title="Edit project" cache-view="false">
+<ion-nav-buttons side="secondary">
+<a ui-sref="list" class="button ion-home">Return Home</a>
+</ion-nav-buttons>
+<ion-content padding="true" scroll="true" ng-controller="EditCtrl">
+<form ng-submit="edits()" name="editForm" novalidate>
+	<div class="list">
+	<label class="item item-input">
+		<span class="input-label">Title:</span>
+		<input type="text" name="title" ng-model="edit.title" required />
+	</label>
+	<label class="item item-input">
+		<span class="input-label">Description:</span>
+		<input type="text" name="description" ng-model="edit.descr"/>
+	</label>
+	<label class="item item-input"> Commisioned?</label>
+	<ion-radio ng-model="edit.comm" value="True">Yes</ion-radio>
+	<ion-radio ng-model="edit.comm" value="False">No</ion-radio>
+	<label class="item item-input">
+		<span class="input-label">By Whom:</span>
+		<input type="text" name="whom"  ng-model="edit.whom" />
+	</label>
+	<button class="button button-block button-positive" ng-disabled="editForm.$invalid" type="submit">Edit project</button>
+	</div>
+		<div class="padding">
+			<p ng-show="editForm.title.$error.required">*Title is Required. </p>
+	</div>
+</form>	
+</ion-content
+</ion-view>

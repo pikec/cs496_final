@@ -1,0 +1,21 @@
+<ion-view view-title="List of Craft Projects" cache-view="false" >
+<ion-nav-buttons side="secondary">
+<button ng-click="logout()" class="button ion-log-out">Log Out</button>
+</ion-nav-buttons>
+<ion-content padding="true" scroll="true">
+<ion-list ng-controller ="ListCtrl">
+	<ion-item ng-repeat="id in data track by $index">
+		<div class="buttons">
+		<a href="#/view/{{id}}" class="button button-small button-stable ion-android-list"></a>
+		<a href="#/edit/{{id}}" class="button button-small button-stable ion-edit"></a>
+		<button class="button button-small ion-trash-b button-stable" ng-click="deleteProj({{id}}, $index)"></button>
+		</div>
+		{{title[$index]}}
+		</ion-item>
+</ion-list>	
+</ion-content>
+<ion-footer-bar class="bar-royal">
+<div class="buttons">
+	<a ui-sref="add" class="button ion-plus">Add new project</a>
+</div>	
+</ion-view>
